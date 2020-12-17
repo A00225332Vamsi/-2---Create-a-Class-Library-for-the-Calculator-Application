@@ -1,0 +1,38 @@
+public class SimpleCalc
+    {
+        public decimal OperatorSwitch(string operation = "", decimal leftNumber = 0, decimal rightNumber = 0)
+        {
+            decimal resultDecimal = 0;
+            if (string.IsNullOrEmpty(operation) || (leftNumber == 0 && rightNumber == 0))
+                return resultDecimal;
+            switch (operation)
+            {
+                case "+":
+                    resultDecimal = (leftNumber + rightNumber);
+                    return resultDecimal;
+                case "-":
+                    resultDecimal = (leftNumber - rightNumber);
+                    return resultDecimal;
+                case "*":
+                    resultDecimal = (leftNumber * rightNumber);
+                    return resultDecimal;
+                case "/":
+                    try
+                    {
+                        resultDecimal = (leftNumber / rightNumber);
+                        return resultDecimal;
+                    }
+                    catch (DivideByZeroException e)
+                    {
+                        Console.WriteLine("Exception caught: {0}", e);
+                    }
+                    finally
+                    {
+                        Console.WriteLine("Result: {0}", resultDecimal);
+                    }
+                    return resultDecimal;
+                default:
+                    return resultDecimal;
+            }
+        }
+    }
